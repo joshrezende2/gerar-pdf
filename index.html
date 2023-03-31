@@ -1,60 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<title>Page 20</title>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-</head>
-<body>
-	<p> isso é um teste</p>
-	<script>
-		// Retrieve the ID parameter from the URL
-		const urlParams = new URLSearchParams(window.location.search);
-		const id = urlParams.get('id');
-
-		// Make an HTTP request to fetch the necessary data
-		fetch(`https://adm.barrasystem.com.br/page.Page10?id=${id}`)
-			.then(response => response.text())
-			.then(html => {
-				const parser = new DOMParser();
-				const doc = parser.parseFromString(html, 'text/html');
-
-				// Retrieve the necessary information from the fetched HTML
-				const tag = doc.querySelector('#tag').textContent;
-				const tipo = doc.querySelector('#tipo').textContent;
-				const user = doc.querySelector('#user').textContent;
-				const local = doc.querySelector('#local').textContent;
-				const inicio = doc.querySelector('#inicio').textContent;
-				const resumo = doc.querySelector('#resumo').textContent;
-				const cliente = doc.querySelector('#cliente').textContent;
-				const situacao = doc.querySelector('#situacao').textContent;
-				const conclusao = doc.querySelector('#conclusao').textContent;
-				const descricao = doc.querySelector('#descricao').textContent;
-				const agendamento = doc.querySelector('#agendamento').textContent;
-				const assinaturaCliente = doc.querySelector('#assinatura_cliente').src;
-
-				// Use the retrieved information to generate a PDF
-				const docPDF = new jsPDF();
-				docPDF.text(tag, 10, 10);
-				docPDF.text(tipo, 10, 20);
-				docPDF.text(user, 10, 30);
-				docPDF.text(local, 10, 40);
-				docPDF.text(inicio, 10, 50);
-				docPDF.text(resumo, 10, 60);
-				docPDF.text(cliente, 10, 70);
-				docPDF.text(situacao, 10, 80);
-				docPDF.text(conclusao, 10, 90);
-				docPDF.text(descricao, 10, 100);
-				docPDF.text(agendamento, 10, 110);
-				docPDF.addImage(assinaturaCliente, 'PNG', 10, 120, 50, 50);
-				docPDF.save('page20.pdf');
-
-				// Close the page after the download starts
-				window.close();
-			})
-			.catch(error => {
-				console.error(error);
-			});
-	</script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>API Call and PDF Generation Example</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>API Call and PDF Generation Example</h1>
+    <p id="result"></p>
+    <button id="generate-pdf">Generate PDF</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
