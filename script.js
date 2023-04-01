@@ -2,9 +2,14 @@ $(document).ready(function() {
   // Get the OS ID from the URL
 const os_id = prompt("Please enter the OS ID:");
 
-  // Make the API call
-  const api_url = `https://xdzf-voac-tbv6.b2.xano.io/api:QFLVgUNS/os_1?os_id=${os_id}`;
-  $.get(api_url, function(data) {
+fetch(`https://xdzf-voac-tbv6.b2.xano.io/api:QFLVgUNS/os_1?os_id=${os_id}`)
+  .then(response => response.json())
+  .then(data => {
+    const resultElement = document.getElementById("result");
+    resultElement.innerText = JSON.stringify(data, null, 2);
+    
+    const generatePdfButton = document.getElementById("generate-pdf");
+    generatePdfButton.addEventListener("click", () => {
     // Create the PDF
     const doc = new jsPDF();
     doc.text(`OS ID: ${data.os_id}`, 10, 10);
