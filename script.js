@@ -1,6 +1,6 @@
 $(document).ready(function() {
   // Get the OS ID from the URL
-const os_id = urlParams.get("id");
+const os_id = prompt("Please enter the OS ID:");
 
   // Make the API call
   const api_url = `https://xdzf-voac-tbv6.b2.xano.io/api:QFLVgUNS/os_1?os_id=${os_id}`;
