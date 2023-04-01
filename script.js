@@ -1,6 +1,5 @@
 $(document).ready(function() {
   // Get the OS ID from the URL
-const urlParams = new URLSearchParams(window.location.search);
 const os_id = urlParams.get("id");
 
   // Make the API call
