@@ -1,6 +1,6 @@
 var os_id;
 const referrerUrl = document.referrer;
-const urlSearchParams = new URLSearchParams(referrerUrl.split("?")[1]);
+const urlSearchParams = new URLSearchParams(window.location.search);
 os_id = urlSearchParams.get("id");
 const resultElement = document.getElementById("result");
 if (resultElement) {
