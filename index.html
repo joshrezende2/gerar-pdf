@@ -10,16 +10,8 @@
     <p id="result"></p>
     <button id="generate-pdf">Generate PDF</button>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
-    <script>
-    var os_id;
-
-const referrerUrl = document.referrer;
-const urlSearchParams = new URLSearchParams(referrerUrl.split("?")[1]);
-os_id = urlSearchParams.get("id");
-resultElement.innerText = referrerUrl;
-
-
-  });
+    <script src="script.js">
+      
     </script>
   </body>
 </html>
